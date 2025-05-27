@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Seu Nome em Código Binário</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    input, button {
+      font-size: 1.2em;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background-color: #00ff00;
+      color: black;
+      cursor: pointer;
+    }
+    .resultado {
+      margin-top: 20px;
+      font-size: 1.5em;
+      word-wrap: break-word;
+      max-width: 90%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Digite seu nome</h1>
+  <input type="text" id="nome" placeholder="Ex: Lucas">
+  <button onclick="converter()">Converter para Binário</button>
+  <div class="resultado" id="saida"></div>
+
+  <script>
+    function converter() {
+      const nome = document.getElementById('nome').value;
+      let binario = '';
+
+      for (let i = 0; i < nome.length; i++) {
+        binario += nome[i].charCodeAt(0).toString(2).padStart(8, '0') + ' ';
+      }
+
+      document.getElementById('saida').innerText = binario;
+    }
+  </script>
+</body>
+</html>
